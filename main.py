@@ -18,6 +18,13 @@ def parsing_map(buffer: str) -> list:
          map.append(line.split(" "))
     return map
 
+def print_map(map_size: int, map: list):
+    padding = map_size * map_size
+    for line in map:
+        for elem in line:
+            print("%s" % elem.rjust(padding), end='')
+        print()
+
 if __name__ == "__main__":
     if len(sys.argv) < 2 :
         exit_error("Usage pyhon3 main.py my_map.txt")
@@ -25,3 +32,4 @@ if __name__ == "__main__":
     SIZE_MAP, *MAP = parsing_map(buffer)
     print("MAP SIZE = ", int(SIZE_MAP[0]))
     print("MAP = ", MAP)
+    print_map(int(SIZE_MAP[0]), MAP)
